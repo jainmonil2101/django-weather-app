@@ -64,15 +64,15 @@ def index(request):
         
     else:
 
-        current_location = requests.get('http://ipinfo.io/json')
-        place = current_location.json()
+        # current_location = requests.get('http://ipinfo.io/json')
+        # place = current_location.json()
 
         user_api = "8ccf65d9d8d8eae4bd584def104aac1b"
         city = place['city']
         complete_api_link = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={user_api}'
         api_link = requests.get(complete_api_link)
         api_data = api_link.json()
-        city_name = api_data['name']
+        city_name = "Ahmedabad"
         temperature = api_data['main']['temp'] - 273.15
         weather = (api_data['weather'][0]['description']).title()
         wind = api_data['wind']['speed']
